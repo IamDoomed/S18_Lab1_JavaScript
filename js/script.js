@@ -14,9 +14,30 @@ function genererContenu() {
     h.textContent = titre + " " + i;
     p.textContent = contenu + " " + i;
 
+    h.setAttribute("monId","Id"+i);
+
     demo.appendChild(h);
     demo.appendChild(p);
   }
+
+  let h2 = demo.getElementsByTagName("h2");
+
+  for (let h of h2) {
+    h.addEventListener("mousedown", function(event) {
+      console.log(event);
+      console.log(event.target);
+
+      console.log(h.getAttribute("monId"));
+
+      if (h.style.backgroundColor == "gray") {
+        h.style.backgroundColor = "white"
+      } else {
+        h.style.backgroundColor = "gray"
+      }
+      
+    }); 
+  }
+
 }
   
 function changerStyle() {
